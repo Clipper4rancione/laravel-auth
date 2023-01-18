@@ -1,1 +1,16 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+.main-wrapper{
+    height: calc(100vh - 57px);
+}
+
+.aside-nav{
+
+    ul{
+        list-style: none;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
