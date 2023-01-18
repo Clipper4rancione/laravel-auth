@@ -22,10 +22,16 @@
 <body>
     <div id="app">
         @include('admin.partials.header')
-        @include('admin.partials.aside')
-        <main class="">
-            @yield('content')
-        </main>
+        <div class="container-fluid main-wrapper">
+            <div class="row h-100">
+                <div class="col-1 bg-dark h-100">
+                    @include('admin.partials.aside')
+                </div>
+                <div class="col-11">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
