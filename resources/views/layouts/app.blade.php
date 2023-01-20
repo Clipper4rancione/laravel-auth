@@ -27,8 +27,10 @@
                 <div class="col-1 bg-dark h-100">
                     @include('admin.partials.aside')
                 </div>
-                <div class="col-11">
-                    @yield('content')
+                <div class="col-11 h-100">
+                    <main>
+                        @yield('content')
+                    </main>
                 </div>
             </div>
         </div>
