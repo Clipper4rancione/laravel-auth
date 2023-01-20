@@ -23,7 +23,7 @@ class ProjectTableSeeder extends Seeder
             $new_project->slug = Project::generateSlug($new_project->name);
             $new_project->client_name = $faker->words(2, true);
             $new_project->summary = $faker->text();
-            $new_project->cover_image = 'https://www.innerintegratori.it/wp-content/uploads/2021/06/placeholder-image.png';
+            $new_project->cover_image = 'https://media.istockphoto.com/id/1288385045/it/foto/picco-k2-innevato.jpg?b=1&s=612x612&w=0&k=20&c=bDTnOYkH-rohSUudGYACiZJNaDmh2h7ocpv0XgGZpJ8=';
 
             $new_project->save();
         }

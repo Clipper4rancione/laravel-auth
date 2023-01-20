@@ -1,9 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
 
+
 .main-wrapper{
     height: calc(100vh - 56px);
+
+    //.table-container{
+        //border: 1px solid black;
+    //}
 }
 
+.show-wrapper{
+    .img-area{
+        width: 400px;
+
+        img{
+            width: 100%;
+        }
+    }
+}
 .aside-nav{
 
     ul{
