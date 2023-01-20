@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(6);
+        $projects = Project::paginate(5);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -26,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -37,7 +37,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+
+        $new_project = new Project();
+        $new_project->fill($form_data);
+
+        $new_project->save();
+
+        return redirect('admin.projects.index');
     }
 
     /**
