@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(5);
+        $projects = Project::orderBy('id', 'desc')->paginate(5);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -39,12 +39,11 @@ class ProjectController extends Controller
     {
         $form_data = $request->all();
 
-        $new_project = new Project();
-        $new_project->fill($form_data);
+        $form_data['slug'] = Project::generateSlug($form_data['name']);
 
-        $new_project->save();
+        $new_project = Project::create($form_data);
 
-        return redirect('admin.projects.index');
+        return redirect()->route('admin.projects.index', $new_project);
     }
 
     /**
@@ -89,8 +88,10 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index');
     }
 }
