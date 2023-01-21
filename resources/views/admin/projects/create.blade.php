@@ -6,26 +6,52 @@
 
 @section('content')
     <div class="container mt-5">
+        <h1>Aggiungi un nuovo progetto al DB</h1>
+
+        {{-- COMMENTO L'ALERT DEGLI ERRORI PERCHÈ NON MI PIACE, IN COMPENSO CI SONO GLI ERRORI SOTTO I CAMPI DI INPUT --}}
+
+        {{-- @if ($errors->any())
+                <div class="alert alert-danger p-2 mt-3">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif --}}
+
         <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="inputName" class="form-label">Nome</label>
-                <input type="text" class="form-control" value="{{ old('title') }}" name="name" id="inputName"
-                    placeholder="Inserire il nome del progetto">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('title') }}"
+                    name="name" id="name" placeholder="Inserire il nome del progetto">
+                @error('name')
+                    <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="inputClientName" class="form-label">Nome del cliente</label>
-                <input type="text" class="form-control" value="{{ old('client_name') }} name="client_name"
-                    id="inputClientName" placeholder="Inserire il nome del cliente">
+                <label for="client_name" class="form-label"">Nome del
+                    cliente</label>
+                <input type="text" class="form-control @error('client_name') is-invalid @enderror"
+                    value="{{ old('client_name') }}" name="client_name" id="client_name"
+                    placeholder="Inserire il nome del cliente">
+                @error('client_name')
+                    <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="inputImage" class="form-label">Immagine</label>
-                <input type="text" class="form-control" value="{{ old('cover_image') }} name="cover_image"
-                    id="inputImage" placeholder="Inserire il link all'immagine">
+                <label for="cover_image" class="form-label">Immagine</label>
+                <input type="text" class="form-control @error('cover_image') is-invalid @enderror""
+                    value="{{ old('cover_image') }}" name="cover_image" id="cover_image"
+                    placeholder="Inserire il link all'immagine">
+                @error('cover_image')
+                    <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="desc" class="form-label">Decrizione</label>
-                <textarea rows="3" class="form-control" value="{{ old('summary') }} name="summary" id="desc"></textarea>
+                <label for="summary" class="form-label">Decrizione</label>
+                <textarea rows="3" class="form-control" value="{{ old('summary') }}" name="summary" id="summary"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Aggiungi</button>
         </form>

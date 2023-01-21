@@ -36,17 +36,18 @@ class ProjectRequest extends FormRequest
     {
         return [
             'name.required' => 'Il Nome è un campo obbligatorio',
-            'client_name.required' => 'Il nome del cliente è un campo obbligatorio',
-
             'name.max' => 'Il Nome può avere massimo :max caratteri',
-            'client_name.max' => 'Il nome del cliente può avere massimo :max caratteri',
-            'summary.max' => 'La descrizione può avere massimo :max caratteri',
-            'cover_image.max' => 'Il link può avere massimo :max caratteri',
+            'name.min' => 'Il Nome deve avere minimo :min carattere',
 
-            'name.min' => 'Il Nome deve avere minimo :min caratteri',
-            'client_name.min' => 'Il Nome deve avere minimo :min caratteri',
-            'summary.min' => 'La descrizione deve avere minimo :min caratteri',
-            'cover_image.min' => 'il link deve avere minimo :min caratteri',
+            'client_name.required' => 'Il nome del cliente è un campo obbligatorio',
+            'client_name.max' => 'Il nome del cliente può avere massimo :max caratteri',
+            'client_name.min' => 'Il Nome deve avere minimo :min carattere',
+
+            'summary.max' => 'La descrizione può avere massimo :max caratteri',
+            'summary.min' => 'La descrizione deve avere minimo :min carattere',
+
+            'cover_image.max' => 'Il link può avere massimo :max caratteri',
+            'cover_image.min' => 'il link deve avere minimo :min carattere',
         ];
     }
 }
