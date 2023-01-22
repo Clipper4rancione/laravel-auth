@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -39,6 +40,18 @@ class ProjectController extends Controller
     public function store(ProjectRequest $request)
     {
         $form_data = $request->all();
+
+
+        //se è presente il file immagine lo salvo nel filesystem e nel db
+
+        if (array_key_exists('cover_image', $form_data)) {
+
+            //salvo il nome originale
+            $form_data['cover_image_original_name'] = $request->file('cover_image')->getClientOriginalName();
+            //salvo il file sul filesystem e il path in $form_data['image']
+            $form_data['cover_image'] = Storage::put('uploads', $form_data['cover_image']);
+        }
+
 
         $form_data['slug'] = Project::generateSlug($form_data['name']);
 
