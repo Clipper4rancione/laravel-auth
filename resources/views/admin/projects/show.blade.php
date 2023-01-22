@@ -8,7 +8,13 @@
     <div class="container show-wrapper">
         <div class="row d-flex h-100 mt-5">
             <div class="col-5 img-area">
-                <img src="{{ $project->cover_image }}" alt="">
+                @if ($project->cover_image)
+                    <div>
+                        <img src="{{ asset('storage/' . $project->cover_image) }}"
+                            alt="{{ $project->cover_image_original_name }}">
+                    </div>
+                @endif
+
             </div>
             <div class="col-7">
                 <div class="text-area">
