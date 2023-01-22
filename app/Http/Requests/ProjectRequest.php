@@ -27,7 +27,7 @@ class ProjectRequest extends FormRequest
             'name' => 'required|max:120|min:2',
             'client_name' => 'required|max:90|min:2',
             'summary' => 'max:255|min:2',
-            'cover_image' => 'max:255|min:1'
+            //'cover_image' => 'max:255|min:1'
 
         ];
     }
@@ -46,8 +46,8 @@ class ProjectRequest extends FormRequest
             'summary.max' => 'La descrizione può avere massimo :max caratteri',
             'summary.min' => 'La descrizione deve avere minimo :min carattere',
 
-            'cover_image.max' => 'Il link può avere massimo :max caratteri',
-            'cover_image.min' => 'il link deve avere minimo :min carattere',
+            //'cover_image.max' => 'Il link può avere massimo :max caratteri',
+            //'cover_image.min' => 'il link deve avere minimo :min carattere',
         ];
     }
 }
